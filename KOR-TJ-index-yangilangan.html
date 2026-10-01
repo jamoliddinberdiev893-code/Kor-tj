@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOR.TJ</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
+.screen{display:none;min-height:100vh;padding:25px 16px}.screen.active{display:flex;flex-direction:column;align-items:center}
+.yellow{background:#ffd400}.card{width:100%;max-width:440px;background:white;border-radius:18px;padding:24px;box-shadow:0 4px 18px #0002}
+.logo{font-size:42px;font-weight:800;text-align:center;margin:20px 0 8px}.subtitle{text-align:center;margin-bottom:20px}
+input,select{width:100%;padding:14px;border:1px solid #ccc;border-radius:10px;margin:7px 0;font-size:16px}
+.btn{border:0;border-radius:10px;padding:14px 18px;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-top:8px}
+.yellowbtn{background:#ffd400}.white{background:#fff;border:1px solid #ddd}
+.lang{display:flex;gap:8px;justify-content:center;margin-bottom:14px}.lang button{border:1px solid #ddd;background:#fff;border-radius:8px;padding:7px 12px}
+.link{text-align:center;margin:14px 0;cursor:pointer}.link u{font-weight:700}
+h2{text-align:center}.back{margin-bottom:12px;cursor:pointer;font-weight:700}
+.homegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:440px}
+.box{background:#fff;border-radius:14px;padding:20px;text-align:center;box-shadow:0 2px 8px #0001}
+.small{font-size:13px;color:#666;text-align:center;margin-top:12px}
+</style>
+</head>
+<body>
+
+<section id="splash" class="screen active yellow">
+  <div class="logo">KOR.TJ</div>
+  <div class="subtitle">Ish toping. Ishchi toping.</div>
+  <div class="lang">
+    <button onclick="setLang('tj')">TJ</button>
+    <button onclick="setLang('uz')">UZ</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+  <div class="card">
+    <input id="loginUser" placeholder="Telefon yoki email">
+    <input id="loginPass" type="password" placeholder="Parol">
+    <label style="display:block;margin:8px 0"><input id="remember" type="checkbox" style="width:auto"> Eslab qolish</label>
+    <div class="small">Parolni unutdingizmi?</div>
+    <button class="btn yellowbtn" onclick="show('home')">Kirish</button>
+    <div class="link" id="registerText" onclick="show('register')">Hisobingiz yo‘qmi? <u>Ro‘yxatdan o‘tish</u></div>
+    <hr>
+    <button class="btn white" onclick="show('admin')">Admin kirish</button>
+  </div>
+</section>
+
+<section id="register" class="screen yellow">
+  <div class="card">
+    <div class="back" onclick="show('splash')">← Orqaga</div>
+    <h2>Ro‘yxatdan o‘tish</h2>
+    <input id="regName" placeholder="Ismingiz">
+    <input id="regPhone" placeholder="Telefon raqami">
+    <input id="regEmail" type="email" placeholder="Email">
+    <input id="regPass" type="password" placeholder="Parol">
+    <input id="regPass2" type="password" placeholder="Parolni takrorlang">
+    <button class="btn yellowbtn" onclick="registerUser()">Ro‘yxatdan o‘tish</button>
+    <div id="regMsg" class="small"></div>
+  </div>
+</section>
+
+<section id="home" class="screen">
+  <div class="card">
+    <div class="logo">KOR.TJ</div>
+    <h2>Asosiy sahifa</h2>
+    <div class="homegrid">
+      <div class="box" onclick="show('search')">🔎<br><b>Ish qidirish</b></div>
+      <div class="box" onclick="show('profile')">👤<br><b>Profil</b></div>
+    </div>
+    <button class="btn white" onclick="show('splash')">Chiqish</button>
+  </div>
+</section>
+
+<section id="search" class="screen">
+  <div class="card">
+    <div class="back" onclick="show('home')">← Orqaga</div>
+    <h2>Ish qidirish</h2>
+    <input placeholder="Kasb yoki ish nomi">
+    <select><option>Tajikiston hududi</option><option>Dushanbe</option><option>Sug‘d</option><option>Хатлон</option><option>Бадахшон</option></select>
+    <button class="btn yellowbtn">Qidirish</button>
+    <p class="small">Ish e’lonlari keyingi bosqichda bazaga ulanadi.</p>
+  </div>
+</section>
+
+<section id="profile" class="screen">
+  <div class="card">
+    <div class="back" onclick="show('home')">← Orqaga</div>
+    <h2>Profil</h2>
+    <p class="small">Profil ma’lumotlari shu yerda ko‘rsatiladi.</p>
+  </div>
+</section>
+
+<section id="admin" class="screen">
+  <div class="card">
+    <div class="back" onclick="show('splash')">← Orqaga</div>
+    <h2>Admin kirish</h2>
+    <input id="adminUser" placeholder="Admin login">
+    <input id="adminPass" type="password" placeholder="Admin parol">
+    <button class="btn yellowbtn" onclick="adminLogin()">Kirish</button>
+    <div id="adminMsg" class="small"></div>
+  </div>
+</section>
+
+<script>
+const L={
+tj:{reg:'Ҳисоб надоред? &nbsp;<u>Сабти ном</u>'},
+uz:{reg:'Hisobingiz yo‘qmi? &nbsp;<u>Ro‘yxatdan o‘tish</u>'},
+ru:{reg:'Нет аккаунта? &nbsp;<u>Регистрация</u>'}
+};
+function show(id){
+ document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+ const el=document.getElementById(id);
+ if(el) el.classList.add('active');
+ window.scrollTo(0,0);
+}
+function setLang(k){
+ localStorage.setItem('kor_lang',k);
+ document.getElementById('registerText').innerHTML=L[k].reg;
+}
+function registerUser(){
+ const name=document.getElementById('regName').value.trim();
+ const phone=document.getElementById('regPhone').value.trim();
+ const email=document.getElementById('regEmail').value.trim();
+ const p1=document.getElementById('regPass').value;
+ const p2=document.getElementById('regPass2').value;
+ const msg=document.getElementById('regMsg');
+ if(!name||!phone||!email||!p1){msg.textContent='Iltimos, barcha maydonlarni to‘ldiring.';return}
+ if(p1!==p2){msg.textContent='Parollar bir xil emas.';return}
+ localStorage.setItem('kor_demo_user',JSON.stringify({name,phone,email,password:p1}));
+ msg.textContent='Ro‘yxatdan o‘tish ma’lumotlari saqlandi. Endi kirishingiz mumkin.';
+ setTimeout(()=>show('splash'),1200);
+}
+function adminLogin(){
+ const u=document.getElementById('adminUser').value;
+ const p=document.getElementById('adminPass').value;
+ document.getElementById('adminMsg').textContent =
+   u && p ? 'Admin paneliga kirish tayyor. Haqiqiy admin autentifikatsiyasi keyingi bosqichda ulanadi.' :
+   'Login va parolni kiriting.';
+}
+setLang(localStorage.getItem('kor_lang')||'uz');
+</script>
+</body>
+</html>
