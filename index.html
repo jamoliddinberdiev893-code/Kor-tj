@@ -14,44 +14,44 @@ body{
 margin:0;
 font-family:Arial,sans-serif;
 background:#f5f5f5;
-color:#222
+color:#222;
 }
 
 .screen{
 display:none;
 min-height:100vh;
-padding:25px 16px
+padding:25px 16px;
 }
 
 .screen.active{
 display:flex;
 flex-direction:column;
-align-items:center
+align-items:center;
 }
 
 .yellow{
-background:#ffd400
+background:#ffd400;
 }
 
 .card{
 width:100%;
 max-width:440px;
-background:white;
+background:#fff;
 border-radius:18px;
 padding:24px;
-box-shadow:0 4px 18px #0002
+box-shadow:0 4px 18px #0002;
 }
 
 .logo{
 font-size:42px;
 font-weight:800;
 text-align:center;
-margin:20px 0 8px
+margin:20px 0 8px;
 }
 
 .subtitle{
 text-align:center;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
 input,select{
@@ -60,7 +60,7 @@ padding:14px;
 border:1px solid #ccc;
 border-radius:10px;
 margin:7px 0;
-font-size:16px
+font-size:16px;
 }
 
 .btn{
@@ -71,55 +71,56 @@ font-size:16px;
 font-weight:700;
 cursor:pointer;
 width:100%;
-margin-top:8px
+margin-top:8px;
 }
 
 .yellowbtn{
-background:#ffd400
+background:#ffd400;
 }
 
 .white{
 background:#fff;
-border:1px solid #ddd
+border:1px solid #ddd;
 }
 
 .redbtn{
 background:#e53935;
-color:white
+color:#fff;
 }
 
 .lang{
 display:flex;
 gap:8px;
 justify-content:center;
-margin-bottom:14px
+margin-bottom:14px;
 }
 
 .lang button{
 border:1px solid #ddd;
 background:#fff;
 border-radius:8px;
-padding:7px 12px
+padding:7px 12px;
+cursor:pointer;
 }
 
 .link{
 text-align:center;
 margin:14px 0;
-cursor:pointer
+cursor:pointer;
 }
 
 .link u{
-font-weight:700
+font-weight:700;
 }
 
 h2{
-text-align:center
+text-align:center;
 }
 
 .back{
 margin-bottom:12px;
 cursor:pointer;
-font-weight:700
+font-weight:700;
 }
 
 .homegrid{
@@ -127,7 +128,7 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:12px;
 width:100%;
-max-width:440px
+max-width:440px;
 }
 
 .box{
@@ -136,21 +137,21 @@ border-radius:14px;
 padding:20px;
 text-align:center;
 box-shadow:0 2px 8px #0001;
-cursor:pointer
+cursor:pointer;
 }
 
 .small{
 font-size:13px;
 color:#666;
 text-align:center;
-margin-top:12px
+margin-top:12px;
 }
 
 .admin-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:12px;
-margin-top:15px
+margin-top:15px;
 }
 
 .admin-box{
@@ -160,47 +161,49 @@ border-radius:14px;
 padding:20px 10px;
 text-align:center;
 font-weight:700;
-cursor:pointer
+cursor:pointer;
 }
 
 .admin-box div{
 font-size:30px;
-margin-bottom:7px
+margin-bottom:7px;
 }
 
 .admin-section{
 display:none;
-margin-top:20px
+margin-top:20px;
 }
 
 .admin-section.active{
-display:block
+display:block;
 }
 
 .admin-item{
 background:#f7f7f7;
 border-radius:10px;
 padding:12px;
-margin:8px 0
+margin:8px 0;
 }
 
 .success{
 color:green;
 font-weight:700;
 text-align:center;
-margin-top:10px
+margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SPLASH / LOGIN -->
-
+<!-- LOGIN -->
 <section id="splash" class="screen active yellow">
 
 <div class="logo">KOR.TJ</div>
-<div class="subtitle">Ish toping. Ishchi toping.</div>
+
+<div class="subtitle">
+Ish toping. Ishchi toping.
+</div>
 
 <div class="lang">
 <button onclick="setLang('tj')">TJ</button>
@@ -210,14 +213,18 @@ margin-top:10px
 
 <div class="card">
 
-<input id="loginUser" placeholder="Telefon yoki email">
+<input
+id="loginUser"
+placeholder="Telefon yoki email">
 
-<input id="loginPass"
+<input
+id="loginPass"
 type="password"
 placeholder="Parol">
 
 <label style="display:block;margin:8px 0">
-<input id="remember"
+<input
+id="remember"
 type="checkbox"
 style="width:auto">
 Eslab qolish
@@ -227,11 +234,14 @@ Eslab qolish
 Parolni unutdingizmi?
 </div>
 
-<button class="btn yellowbtn" onclick="userLogin()">
+<button
+class="btn yellowbtn"
+onclick="userLogin()">
 Kirish
 </button>
 
-<div class="link"
+<div
+class="link"
 id="registerText"
 onclick="show('register')">
 Hisobingiz yo‘qmi?
@@ -240,7 +250,8 @@ Hisobingiz yo‘qmi?
 
 <hr>
 
-<button class="btn white"
+<button
+class="btn white"
 onclick="show('admin')">
 Admin kirish
 </button>
@@ -250,65 +261,78 @@ Admin kirish
 
 
 <!-- REGISTER -->
-
 <section id="register" class="screen yellow">
 
 <div class="card">
 
-<div class="back" onclick="show('splash')">
+<div
+class="back"
+onclick="show('splash')">
 ← Orqaga
 </div>
 
 <h2>Ro‘yxatdan o‘tish</h2>
 
-<input id="regName"
+<input
+id="regName"
 placeholder="Ismingiz">
 
-<input id="regPhone"
+<input
+id="regPhone"
 placeholder="Telefon raqami">
 
-<input id="regEmail"
+<input
+id="regEmail"
 type="email"
 placeholder="Email">
 
-<input id="regPass"
+<input
+id="regPass"
 type="password"
 placeholder="Parol">
 
-<input id="regPass2"
+<input
+id="regPass2"
 type="password"
 placeholder="Parolni takrorlang">
 
-<button class="btn yellowbtn"
+<button
+class="btn yellowbtn"
 onclick="registerUser()">
 Ro‘yxatdan o‘tish
 </button>
 
-<div id="regMsg" class="small"></div>
+<div
+id="regMsg"
+class="small">
+</div>
 
 </div>
 </section>
 
 
 <!-- HOME -->
-
 <section id="home" class="screen">
 
 <div class="card">
 
-<div class="logo">KOR.TJ</div>
+<div class="logo">
+KOR.TJ
+</div>
 
 <h2>Asosiy sahifa</h2>
 
 <div class="homegrid">
 
-<div class="box"
+<div
+class="box"
 onclick="show('search')">
 🔎<br>
 <b>Ish qidirish</b>
 </div>
 
-<div class="box"
+<div
+class="box"
 onclick="show('profile')">
 👤<br>
 <b>Profil</b>
@@ -316,7 +340,8 @@ onclick="show('profile')">
 
 </div>
 
-<button class="btn white"
+<button
+class="btn white"
 onclick="show('splash')">
 Chiqish
 </button>
@@ -326,12 +351,12 @@ Chiqish
 
 
 <!-- SEARCH -->
-
 <section id="search" class="screen">
 
 <div class="card">
 
-<div class="back"
+<div
+class="back"
 onclick="show('home')">
 ← Orqaga
 </div>
@@ -350,12 +375,15 @@ placeholder="Kasb yoki ish nomi">
 <option>Бадахшон</option>
 </select>
 
-<button class="btn yellowbtn"
+<button
+class="btn yellowbtn"
 onclick="searchJobs()">
 Qidirish
 </button>
 
-<div id="searchMsg" class="small">
+<div
+id="searchMsg"
+class="small">
 Ish e’lonlarini qidirish.
 </div>
 
@@ -364,19 +392,21 @@ Ish e’lonlarini qidirish.
 
 
 <!-- PROFILE -->
-
 <section id="profile" class="screen">
 
 <div class="card">
 
-<div class="back"
+<div
+class="back"
 onclick="show('home')">
 ← Orqaga
 </div>
 
 <h2>Profil</h2>
 
-<p id="profileInfo" class="small">
+<p
+id="profileInfo"
+class="small">
 Profil ma’lumotlari shu yerda ko‘rsatiladi.
 </p>
 
@@ -385,12 +415,12 @@ Profil ma’lumotlari shu yerda ko‘rsatiladi.
 
 
 <!-- ADMIN LOGIN -->
-
 <section id="admin" class="screen">
 
 <div class="card">
 
-<div class="back"
+<div
+class="back"
 onclick="show('splash')">
 ← Orqaga
 </div>
@@ -406,12 +436,14 @@ id="adminPass"
 type="password"
 placeholder="Admin parol">
 
-<button class="btn yellowbtn"
+<button
+class="btn yellowbtn"
 onclick="adminLogin()">
 Kirish
 </button>
 
-<div id="adminMsg"
+<div
+id="adminMsg"
 class="small">
 </div>
 
@@ -420,17 +452,18 @@ class="small">
 
 
 <!-- ADMIN PANEL -->
-
 <section id="adminPanel" class="screen">
 
 <div class="card">
 
-<div class="back"
+<div
+class="back"
 onclick="show('splash')">
 ← Orqaga
 </div>
 
-<div class="logo"
+<div
+class="logo"
 style="font-size:32px">
 KOR.TJ
 </div>
@@ -443,25 +476,29 @@ Admin sifatida kirdingiz
 
 <div class="admin-grid">
 
-<div class="admin-box"
+<div
+class="admin-box"
 onclick="openAdminSection('dashboard')">
 <div>📊</div>
 Bosh sahifa
 </div>
 
-<div class="admin-box"
+<div
+class="admin-box"
 onclick="openAdminSection('users')">
 <div>👥</div>
 Users
 </div>
 
-<div class="admin-box"
+<div
+class="admin-box"
 onclick="openAdminSection('profiles')">
 <div>👤</div>
 Profiles
 </div>
 
-<div class="admin-box"
+<div
+class="admin-box"
 onclick="openAdminSection('jobs')">
 <div>💼</div>
 Jobs
@@ -471,8 +508,8 @@ Jobs
 
 
 <!-- DASHBOARD -->
-
-<div id="dashboard"
+<div
+id="dashboard"
 class="admin-section active">
 
 <h3>Admin bosh sahifasi</h3>
@@ -496,8 +533,8 @@ class="admin-section active">
 
 
 <!-- USERS -->
-
-<div id="users"
+<div
+id="users"
 class="admin-section">
 
 <h3>Users</h3>
@@ -516,8 +553,8 @@ Hozircha boshqa foydalanuvchilar yo‘q.
 
 
 <!-- PROFILES -->
-
-<div id="profiles"
+<div
+id="profiles"
 class="admin-section">
 
 <h3>Profiles</h3>
@@ -525,15 +562,16 @@ class="admin-section">
 <div class="admin-item">
 <b>KOR.TJ Admin</b>
 <br>
-Role: <b>admin</b>
+Role:
+<b>admin</b>
 </div>
 
 </div>
 
 
 <!-- JOBS -->
-
-<div id="jobs"
+<div
+id="jobs"
 class="admin-section">
 
 <h3>Jobs</h3>
@@ -542,19 +580,22 @@ class="admin-section">
 💼 Hozircha ish e’lonlari panelga chiqarilmagan.
 </div>
 
-<button class="btn yellowbtn"
+<button
+class="btn yellowbtn"
 onclick="showJobMessage()">
 Ish e’lonlarini tekshirish
 </button>
 
-<div id="jobAdminMsg"
+<div
+id="jobAdminMsg"
 class="small">
 </div>
 
 </div>
 
 
-<button class="btn redbtn"
+<button
+class="btn redbtn"
 onclick="adminLogout()">
 Admin paneldan chiqish
 </button>
@@ -565,45 +606,62 @@ Admin paneldan chiqish
 
 <script>
 
-const L={
+const L = {
+
 tj:{
 reg:'Ҳисоб надоред? &nbsp;<u>Сабти ном</u>'
 },
+
 uz:{
 reg:'Hisobingiz yo‘qmi? &nbsp;<u>Ro‘yxatdan o‘tish</u>'
 },
+
 ru:{
 reg:'Нет аккаунта? &nbsp;<u>Регистрация</u>'
 }
+
 };
 
 
 function show(id){
 
-document.querySelectorAll('.screen')
+document
+.querySelectorAll('.screen')
 .forEach(function(x){
+
 x.classList.remove('active');
+
 });
 
-const el=document.getElementById(id);
+const el =
+document.getElementById(id);
 
 if(el){
+
 el.classList.add('active');
+
 }
 
 window.scrollTo(0,0);
+
 }
 
 
 function setLang(k){
 
-localStorage.setItem('kor_lang',k);
+localStorage.setItem(
+'kor_lang',
+k
+);
 
-const registerText=
+const registerText =
 document.getElementById('registerText');
 
-if(registerText){
-registerText.innerHTML=L[k].reg;
+if(registerText && L[k]){
+
+registerText.innerHTML =
+L[k].reg;
+
 }
 
 }
@@ -611,51 +669,63 @@ registerText.innerHTML=L[k].reg;
 
 function adminLogin(){
 
-const u=
-document.getElementById('adminUser')
-.value.trim();
+const u =
+document
+.getElementById('adminUser')
+.value
+.trim();
 
-const p=
-document.getElementById('adminPass')
-.value.trim();
+const p =
+document
+.getElementById('adminPass')
+.value
+.trim();
 
-const msg=
+const msg =
 document.getElementById('adminMsg');
 
 if(!u || !p){
 
-msg.textContent=
+msg.textContent =
 'Login va parolni kiriting.';
 
 return;
+
 }
 
-msg.textContent=
+msg.textContent =
 'Tekshirilmoqda...';
 
 
-if(u==='admin' && p==='123456'){
+if(
+u === 'admin' &&
+p === '123456'
+){
 
-msg.textContent=
+msg.textContent =
 'Admin paneliga kirish muvaffaqiyatli!';
 
 setTimeout(function(){
 
 show('adminPanel');
 
-document.getElementById('adminUser')
-.value='';
+document.getElementById(
+'adminUser'
+).value = '';
 
-document.getElementById('adminPass')
-.value='';
+document.getElementById(
+'adminPass'
+).value = '';
 
-msg.textContent='';
+msg.textContent = '';
+
+updateAdminCounts();
 
 },500);
 
 }else{
 
-msg.textContent=
+msg.textContent =
 'Login yoki parol noto‘g‘ri.';
 
 }
@@ -665,18 +735,21 @@ msg.textContent=
 
 function openAdminSection(id){
 
-document.querySelectorAll('.admin-section')
+document
+.querySelectorAll('.admin-section')
 .forEach(function(x){
 
 x.classList.remove('active');
 
 });
 
-const section=
+const section =
 document.getElementById(id);
 
 if(section){
+
 section.classList.add('active');
+
 }
 
 }
@@ -684,8 +757,13 @@ section.classList.add('active');
 
 function adminLogout(){
 
-document.getElementById('adminUser').value='';
-document.getElementById('adminPass').value='';
+document.getElementById(
+'adminUser'
+).value = '';
+
+document.getElementById(
+'adminPass'
+).value = '';
 
 show('splash');
 
@@ -694,16 +772,21 @@ show('splash');
 
 function userLogin(){
 
-const login=
-document.getElementById('loginUser')
-.value.trim();
+const login =
+document
+.getElementById('loginUser')
+.value
+.trim();
 
-const password=
-document.getElementById('loginPass')
+const password =
+document
+.getElementById('loginPass')
 .value;
 
-const saved=
-localStorage.getItem('kor_demo_user');
+const saved =
+localStorage.getItem(
+'kor_demo_user'
+);
 
 if(!login || !password){
 
@@ -712,19 +795,21 @@ alert(
 );
 
 return;
+
 }
 
 if(saved){
 
 try{
 
-const user=JSON.parse(saved);
+const user =
+JSON.parse(saved);
 
 if(
-(login===user.email ||
-login===user.phone)
+(login === user.email ||
+login === user.phone)
 &&
-password===user.password
+password === user.password
 ){
 
 show('home');
@@ -750,28 +835,38 @@ alert(
 
 function registerUser(){
 
-const name=
-document.getElementById('regName')
-.value.trim();
+const name =
+document
+.getElementById('regName')
+.value
+.trim();
 
-const phone=
-document.getElementById('regPhone')
-.value.trim();
+const phone =
+document
+.getElementById('regPhone')
+.value
+.trim();
 
-const email=
-document.getElementById('regEmail')
-.value.trim();
+const email =
+document
+.getElementById('regEmail')
+.value
+.trim();
 
-const p1=
-document.getElementById('regPass')
+const p1 =
+document
+.getElementById('regPass')
 .value;
 
-const p2=
-document.getElementById('regPass2')
+const p2 =
+document
+.getElementById('regPass2')
 .value;
 
-const msg=
-document.getElementById('regMsg');
+const msg =
+document
+.getElementById('regMsg');
+
 
 if(
 !name ||
@@ -781,34 +876,40 @@ if(
 !p2
 ){
 
-msg.textContent=
+msg.textContent =
 'Iltimos, barcha maydonlarni to‘ldiring.';
 
 return;
 
 }
 
-if(p1!==p2){
 
-msg.textContent=
+if(p1 !== p2){
+
+msg.textContent =
 'Parollar bir xil emas.';
 
 return;
 
 }
 
+
 localStorage.setItem(
 'kor_demo_user',
 JSON.stringify({
+
 name:name,
 phone:phone,
 email:email,
 password:p1
+
 })
 );
 
-msg.textContent=
+
+msg.textContent =
 'Ro‘yxatdan o‘tish ma’lumotlari saqlandi. Endi kirishingiz mumkin.';
+
 
 setTimeout(function(){
 
@@ -821,18 +922,83 @@ show('splash');
 
 function searchJobs(){
 
-const text=
-document.getElementById('searchJob')
-.value.trim();
+const text =
+document
+.getElementById('searchJob')
+.value
+.trim();
 
-const region=
-document.getElementById('searchRegion')
+const region =
+document
+.getElementById('searchRegion')
 .value;
 
-const msg=
-document.getElementById('searchMsg');
+const msg =
+document
+.getElementById('searchMsg');
+
 
 if(!text){
 
-msg.textContent=
-'Kasb yoki ish nomini kiriting
+msg.textContent =
+'Kasb yoki ish nomini kiriting.';
+
+return;
+
+}
+
+
+msg.textContent =
+'"' + text +
+'" bo‘yicha ' +
+region +
+' hududida ishlar qidirilmoqda.';
+
+}
+
+
+function showJobMessage(){
+
+const msg =
+document
+.getElementById('jobAdminMsg');
+
+msg.textContent =
+'Ish e’lonlari bo‘limi tekshirildi.';
+
+}
+
+
+function updateAdminCounts(){
+
+const savedUser =
+localStorage.getItem(
+'kor_demo_user'
+);
+
+document.getElementById(
+'userCount'
+).textContent =
+savedUser ? '2' : '1';
+
+document.getElementById(
+'profileCount'
+).textContent =
+'1';
+
+document.getElementById(
+'jobCount'
+).textContent =
+'0';
+
+}
+
+
+setLang(
+localStorage.getItem('kor_lang') || 'uz'
+);
+
+</script>
+
+</body>
+  </html>
