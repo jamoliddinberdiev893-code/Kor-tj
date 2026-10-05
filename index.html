@@ -9,136 +9,108 @@
 
 <style>
 *{box-sizing:border-box}
-
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f5f5f5;
- color:#222;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+color:#222
 }
-
 .screen{
- display:none;
- min-height:100vh;
- padding:25px 16px;
+display:none;
+min-height:100vh;
+padding:25px 16px
 }
-
 .screen.active{
- display:flex;
- flex-direction:column;
- align-items:center;
+display:flex;
+flex-direction:column;
+align-items:center
 }
-
-.yellow{
- background:#ffd400;
-}
-
+.yellow{background:#ffd400}
 .card{
- width:100%;
- max-width:440px;
- background:white;
- border-radius:18px;
- padding:24px;
- box-shadow:0 4px 18px #0002;
+width:100%;
+max-width:440px;
+background:white;
+border-radius:18px;
+padding:24px;
+box-shadow:0 4px 18px #0002
 }
-
 .logo{
- font-size:42px;
- font-weight:800;
- text-align:center;
- margin:20px 0 8px;
+font-size:42px;
+font-weight:800;
+text-align:center;
+margin:20px 0 8px
 }
-
 .subtitle{
- text-align:center;
- margin-bottom:20px;
+text-align:center;
+margin-bottom:20px
 }
-
 input,select{
- width:100%;
- padding:14px;
- border:1px solid #ccc;
- border-radius:10px;
- margin:7px 0;
- font-size:16px;
+width:100%;
+padding:14px;
+border:1px solid #ccc;
+border-radius:10px;
+margin:7px 0;
+font-size:16px
 }
-
 .btn{
- border:0;
- border-radius:10px;
- padding:14px 18px;
- font-size:16px;
- font-weight:700;
- cursor:pointer;
- width:100%;
- margin-top:8px;
+border:0;
+border-radius:10px;
+padding:14px 18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+width:100%;
+margin-top:8px
 }
-
-.yellowbtn{
- background:#ffd400;
-}
-
+.yellowbtn{background:#ffd400}
 .white{
- background:#fff;
- border:1px solid #ddd;
+background:#fff;
+border:1px solid #ddd
 }
-
 .lang{
- display:flex;
- gap:8px;
- justify-content:center;
- margin-bottom:14px;
+display:flex;
+gap:8px;
+justify-content:center;
+margin-bottom:14px
 }
-
 .lang button{
- border:1px solid #ddd;
- background:#fff;
- border-radius:8px;
- padding:7px 12px;
+border:1px solid #ddd;
+background:#fff;
+border-radius:8px;
+padding:7px 12px
 }
-
 .link{
- text-align:center;
- margin:14px 0;
- cursor:pointer;
+text-align:center;
+margin:14px 0;
+cursor:pointer
 }
-
-.link u{
- font-weight:700;
-}
-
-h2{
- text-align:center;
-}
-
+.link u{font-weight:700}
+h2{text-align:center}
 .back{
- margin-bottom:12px;
- cursor:pointer;
- font-weight:700;
+margin-bottom:12px;
+cursor:pointer;
+font-weight:700
 }
-
 .homegrid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
- width:100%;
- max-width:440px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+width:100%;
+max-width:440px
 }
-
 .box{
- background:#fff;
- border-radius:14px;
- padding:20px;
- text-align:center;
- box-shadow:0 2px 8px #0001;
- cursor:pointer;
+background:#fff;
+border-radius:14px;
+padding:20px;
+text-align:center;
+box-shadow:0 2px 8px #0001;
+cursor:pointer
 }
-
 .small{
- font-size:13px;
- color:#666;
- text-align:center;
- margin-top:12px;
+font-size:13px;
+color:#666;
+text-align:center;
+margin-top:12px
 }
 </style>
 </head>
@@ -146,315 +118,347 @@ h2{
 <body>
 
 <section id="splash" class="screen active yellow">
-  <div class="logo">KOR.TJ</div>
-  <div class="subtitle">Ish toping. Ishchi toping.</div>
 
-  <div class="lang">
-    <button onclick="setLang('tj')">TJ</button>
-    <button onclick="setLang('uz')">UZ</button>
-    <button onclick="setLang('ru')">RU</button>
-  </div>
+<div class="logo">KOR.TJ</div>
+<div class="subtitle">Ish toping. Ishchi toping.</div>
 
-  <div class="card">
-    <input id="loginUser" placeholder="Telefon yoki email">
-    <input id="loginPass" type="password" placeholder="Parol">
+<div class="lang">
+<button onclick="setLang('tj')">TJ</button>
+<button onclick="setLang('uz')">UZ</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
 
-    <label style="display:block;margin:8px 0">
-      <input id="remember" type="checkbox" style="width:auto">
-      Eslab qolish
-    </label>
+<div class="card">
 
-    <div class="small">Parolni unutdingizmi?</div>
+<input id="loginUser" placeholder="Telefon yoki email">
+<input id="loginPass" type="password" placeholder="Parol">
 
-    <button class="btn yellowbtn" onclick="show('home')">
-      Kirish
-    </button>
+<label style="display:block;margin:8px 0">
+<input id="remember" type="checkbox" style="width:auto">
+Eslab qolish
+</label>
 
-    <div class="link" id="registerText" onclick="show('register')">
-      Hisobingiz yo‘qmi? <u>Ro‘yxatdan o‘tish</u>
-    </div>
+<div class="small">Parolni unutdingizmi?</div>
 
-    <hr>
+<button class="btn yellowbtn" onclick="userLogin()">
+Kirish
+</button>
 
-    <button class="btn white" onclick="show('admin')">
-      Admin kirish
-    </button>
-  </div>
+<div class="link" id="registerText" onclick="show('register')">
+Hisobingiz yo‘qmi? <u>Ro‘yxatdan o‘tish</u>
+</div>
+
+<hr>
+
+<button class="btn white" onclick="show('admin')">
+Admin kirish
+</button>
+
+</div>
 </section>
 
 
 <section id="register" class="screen yellow">
-  <div class="card">
 
-    <div class="back" onclick="show('splash')">
-      ← Orqaga
-    </div>
+<div class="card">
 
-    <h2>Ro‘yxatdan o‘tish</h2>
+<div class="back" onclick="show('splash')">
+← Orqaga
+</div>
 
-    <input id="regName" placeholder="Ismingiz">
-    <input id="regPhone" placeholder="Telefon raqami">
-    <input id="regEmail" type="email" placeholder="Email">
-    <input id="regPass" type="password" placeholder="Parol">
-    <input id="regPass2" type="password" placeholder="Parolni takrorlang">
+<h2>Ro‘yxatdan o‘tish</h2>
 
-    <button class="btn yellowbtn" onclick="registerUser()">
-      Ro‘yxatdan o‘tish
-    </button>
+<input id="regName" placeholder="Ismingiz">
+<input id="regPhone" placeholder="Telefon raqami">
+<input id="regEmail" type="email" placeholder="Email">
+<input id="regPass" type="password" placeholder="Parol">
+<input id="regPass2" type="password" placeholder="Parolni takrorlang">
 
-    <div id="regMsg" class="small"></div>
+<button class="btn yellowbtn" onclick="registerUser()">
+Ro‘yxatdan o‘tish
+</button>
 
-  </div>
+<div id="regMsg" class="small"></div>
+
+</div>
 </section>
 
 
 <section id="home" class="screen">
 
-  <div class="card">
+<div class="card">
 
-    <div class="logo">KOR.TJ</div>
+<div class="logo">KOR.TJ</div>
 
-    <h2>Asosiy sahifa</h2>
+<h2>Asosiy sahifa</h2>
 
-    <div class="homegrid">
+<div class="homegrid">
 
-      <div class="box" onclick="show('search')">
-        🔎<br>
-        <b>Ish qidirish</b>
-      </div>
+<div class="box" onclick="show('search')">
+🔎<br>
+<b>Ish qidirish</b>
+</div>
 
-      <div class="box" onclick="show('profile')">
-        👤<br>
-        <b>Profil</b>
-      </div>
+<div class="box" onclick="show('profile')">
+👤<br>
+<b>Profil</b>
+</div>
 
-    </div>
+</div>
 
-    <button class="btn white" onclick="show('splash')">
-      Chiqish
-    </button>
+<button class="btn white" onclick="show('splash')">
+Chiqish
+</button>
 
-  </div>
-
+</div>
 </section>
 
 
 <section id="search" class="screen">
 
-  <div class="card">
+<div class="card">
 
-    <div class="back" onclick="show('home')">
-      ← Orqaga
-    </div>
+<div class="back" onclick="show('home')">
+← Orqaga
+</div>
 
-    <h2>Ish qidirish</h2>
+<h2>Ish qidirish</h2>
 
-    <input placeholder="Kasb yoki ish nomi">
+<input placeholder="Kasb yoki ish nomi">
 
-    <select>
-      <option>Tajikiston hududi</option>
-      <option>Dushanbe</option>
-      <option>Sug‘d</option>
-      <option>Хатлон</option>
-      <option>Бадахшон</option>
-    </select>
+<select>
+<option>Tajikiston hududi</option>
+<option>Dushanbe</option>
+<option>Sug‘d</option>
+<option>Хатлон</option>
+<option>Бадахшон</option>
+</select>
 
-    <button class="btn yellowbtn">
-      Qidirish
-    </button>
+<button class="btn yellowbtn">
+Qidirish
+</button>
 
-    <p class="small">
-      Ish e’lonlari keyingi bosqichda bazaga ulanadi.
-    </p>
+<p class="small">
+Ish e’lonlari keyingi bosqichda bazaga ulanadi.
+</p>
 
-  </div>
-
+</div>
 </section>
 
 
 <section id="profile" class="screen">
 
-  <div class="card">
+<div class="card">
 
-    <div class="back" onclick="show('home')">
-      ← Orqaga
-    </div>
+<div class="back" onclick="show('home')">
+← Orqaga
+</div>
 
-    <h2>Profil</h2>
+<h2>Profil</h2>
 
-    <p class="small">
-      Profil ma’lumotlari shu yerda ko‘rsatiladi.
-    </p>
+<p class="small">
+Profil ma’lumotlari shu yerda ko‘rsatiladi.
+</p>
 
-  </div>
-
+</div>
 </section>
 
 
 <section id="admin" class="screen">
 
-  <div class="card">
+<div class="card">
 
-    <div class="back" onclick="show('splash')">
-      ← Orqaga
-    </div>
+<div class="back" onclick="show('splash')">
+← Orqaga
+</div>
 
-    <h2>Admin kirish</h2>
+<h2>Admin kirish</h2>
 
-    <input id="adminUser" placeholder="Admin login">
+<input id="adminUser" placeholder="Admin login">
 
-    <input id="adminPass" type="password" placeholder="Admin parol">
+<input id="adminPass" type="password" placeholder="Admin parol">
 
-    <button class="btn yellowbtn" onclick="adminLogin()">
-      Kirish
-    </button>
+<button class="btn yellowbtn" onclick="adminLogin()">
+Kirish
+</button>
 
-    <div id="adminMsg" class="small"></div>
+<div id="adminMsg" class="small"></div>
 
-  </div>
-
+</div>
 </section>
 
 
 <script>
 
 const L={
- tj:{
-   reg:'Ҳисоб надоред? &nbsp;<u>Сабти ном</u>'
- },
- uz:{
-   reg:'Hisobingiz yo‘qmi? &nbsp;<u>Ro‘yxatdan o‘tish</u>'
- },
- ru:{
-   reg:'Нет аккаунта? &nbsp;<u>Регистрация</u>'
- }
+tj:{
+reg:'Ҳисоб надоред? &nbsp;<u>Сабти ном</u>'
+},
+uz:{
+reg:'Hisobingiz yo‘qmi? &nbsp;<u>Ro‘yxatdan o‘tish</u>'
+},
+ru:{
+reg:'Нет аккаунта? &nbsp;<u>Регистрация</u>'
+}
 };
 
 
 function show(id){
 
- document.querySelectorAll('.screen')
- .forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.screen')
+.forEach(x=>x.classList.remove('active'));
 
- const el=document.getElementById(id);
+const el=document.getElementById(id);
 
- if(el){
-   el.classList.add('active');
- }
+if(el){
+el.classList.add('active');
+}
 
- window.scrollTo(0,0);
+window.scrollTo(0,0);
 }
 
 
 function setLang(k){
 
- localStorage.setItem('kor_lang',k);
+localStorage.setItem('kor_lang',k);
 
- document.getElementById('registerText')
- .innerHTML=L[k].reg;
+document.getElementById('registerText')
+.innerHTML=L[k].reg;
 }
 
 
 function adminLogin(){
 
- const u=document.getElementById('adminUser')
- .value.trim();
+const u=document.getElementById('adminUser')
+.value.trim();
 
- const p=document.getElementById('adminPass')
- .value.trim();
+const p=document.getElementById('adminPass')
+.value.trim();
 
- const msg=document.getElementById('adminMsg');
+const msg=document.getElementById('adminMsg');
+
+if(!u || !p){
+
+msg.textContent='Login va parolni kiriting.';
+
+return;
+}
+
+msg.textContent='Tekshirilmoqda...';
+
+if(u==='admin' && p==='123456'){
+
+msg.textContent='Admin paneliga kirish muvaffaqiyatli!';
+
+}else{
+
+msg.textContent='Login yoki parol noto‘g‘ri.';
+
+}
+
+}
 
 
- if(!u || !p){
+function userLogin(){
 
-   msg.textContent='Login va parolni kiriting.';
+const login=document.getElementById('loginUser')
+.value.trim();
 
-   return;
- }
+const password=document.getElementById('loginPass')
+.value;
 
+const saved=localStorage.getItem('kor_demo_user');
 
- msg.textContent='Tekshirilmoqda...';
+if(!login || !password){
 
+alert('Telefon yoki email va parolni kiriting.');
 
- if(u==='admin' && p==='123456'){
+return;
+}
 
-   msg.textContent='Admin paneliga kirish muvaffaqiyatli!';
+if(saved){
 
- }else{
+const user=JSON.parse(saved);
 
-   msg.textContent='Login yoki parol noto‘g‘ri.';
+if(
+(login===user.email || login===user.phone)
+&&
+password===user.password
+){
 
- }
+show('home');
+
+return;
+
+}
+
+}
+
+alert('Login yoki parol noto‘g‘ri.');
 
 }
 
 
 function registerUser(){
 
- const name=document.getElementById('regName')
- .value.trim();
+const name=document.getElementById('regName')
+.value.trim();
 
- const phone=document.getElementById('regPhone')
- .value.trim();
+const phone=document.getElementById('regPhone')
+.value.trim();
 
- const email=document.getElementById('regEmail')
- .value.trim();
+const email=document.getElementById('regEmail')
+.value.trim();
 
- const p1=document.getElementById('regPass')
- .value;
+const p1=document.getElementById('regPass')
+.value;
 
- const p2=document.getElementById('regPass2')
- .value;
+const p2=document.getElementById('regPass2')
+.value;
 
- const msg=document.getElementById('regMsg');
+const msg=document.getElementById('regMsg');
 
+if(!name || !phone || !email || !p1 || !p2){
 
- if(!name || !phone || !email || !p1){
+msg.textContent='Iltimos, barcha maydonlarni to‘ldiring.';
 
-   msg.textContent='Iltimos, barcha maydonlarni to‘ldiring.';
+return;
+}
 
-   return;
- }
+if(p1!==p2){
 
+msg.textContent='Parollar bir xil emas.';
 
- if(p1!==p2){
+return;
+}
 
-   msg.textContent='Parollar bir xil emas.';
+localStorage.setItem(
+'kor_demo_user',
+JSON.stringify({
+name:name,
+phone:phone,
+email:email,
+password:p1
+})
+);
 
-   return;
- }
+msg.textContent=
+'Ro‘yxatdan o‘tish ma’lumotlari saqlandi. Endi kirishingiz mumkin.';
 
+setTimeout(function(){
 
- localStorage.setItem(
-   'kor_demo_user',
-   JSON.stringify({
-     name:name,
-     phone:phone,
-     email:email,
-     password:p1
-   })
- );
+show('splash');
 
-
- msg.textContent=
- 'Ro‘yxatdan o‘tish ma’lumotlari saqlandi. Endi kirishingiz mumkin.';
-
-
- setTimeout(function(){
-
-   show('splash');
-
- },1200);
+},1200);
 
 }
 
 
 setLang(
- localStorage.getItem('kor_lang') || 'uz'
+localStorage.getItem('kor_lang') || 'uz'
 );
 
 </script>
 
 </body>
-      </html>
+ </html>
