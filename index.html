@@ -1633,60 +1633,6 @@ document.addEventListener(
 );
 
 </script>
-<script>
-
-async function loadJobs(){
-
-  const box = document.getElementById('jobsList');
-
-  if(!box) return;
-
-  box.innerHTML = 'Ишлар юкланмоқда...';
-
-  const { data, error } = await supabase
-    .from('jobs')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if(error){
-
-    box.innerHTML =
-      'Ишларни юклашда хато: ' +
-      escapeHtml(error.message);
-
-    return;
-  }
-
-  if(!data || data.length === 0){
-
-    box.innerHTML = 'Ҳозирча иш эълонлари йўқ.';
-
-    return;
-  }
-
-  box.innerHTML = '';
-
-  data.forEach(function(job){
-
-    const item = document.createElement('div');
-
-    item.style.cssText =
-      'background:white;padding:15px;margin:10px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)';
-
-    item.innerHTML = `
-      <h3>${escapeHtml(job.title || 'Иш эълони')}</h3>
-      <p>${escapeHtml(job.description || '')}</p>
-      <p><b>Ҳудуд:</b> ${escapeHtml(job.region || '')}</p>
-      <p><b>Категория:</b> ${escapeHtml(job.category || '')}</p>
-    `;
-
-    box.appendChild(item);
-
-  });
-
-}
-loadJobs();
-</script>
 </body>
   </html>
 
