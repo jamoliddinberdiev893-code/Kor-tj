@@ -966,8 +966,8 @@ function renderJobs(jobs){
        ? '💰 '+escapeHtml(salary)+'<br>'
        : ''}
        ${phone
-       ? '📞 '+escapeHtml(phone)
-       : ''}
+ ? `<a href="tel:${escapeHtml(phone)}" style="display:inline-block;margin-top:8px;font-weight:bold;text-decoration:none;">📞 ${escapeHtml(phone)}</a>`
+ : ''}
      </div>
 
      ${
