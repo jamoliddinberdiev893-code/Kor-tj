@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="100" fill="#f5c400"/>
+<g fill="#171717">
+<rect x="105" y="190" width="302" height="205" rx="30"/>
+<path d="M180 190v-38a22 22 0 0 1 22-22h108a22 22 0 0 1 22 22v38h-35v-25H215v25z"/>
+</g>
+<path d="M105 225l151 65 151-65v35l-151 65-151-65z" fill="#f5c400"/>
+<rect x="230" y="270" width="52" height="60" rx="10" fill="#f5c400"/>
+<rect x="244" y="282" width="24" height="35" rx="3" fill="#171717"/>
+<text x="256" y="455" font-family="Arial,sans-serif" font-size="58" font-weight="900" text-anchor="middle" fill="#171717">KOR.TJ</text>
+</svg>
